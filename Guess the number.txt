@@ -41,6 +41,7 @@ int main()
         }
         else
         {
+            printf("My Number is %d\n",random);
             printf("Try again\n");
             w++;
         }
