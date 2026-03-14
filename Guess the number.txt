@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main() 
+{
+    char name[15];
+    int trail=1;
+    int guess;
+    int r=0,w=0;
+    printf("Let's play a small GAME.\n");
+    printf("Are you Ready![Press Enter]");
+    getchar();
+    //it is used to print the line after pressing enter
+    printf("Enter Your Name:\n");
+    scanf("%s",name);
+    printf("Press odd numbers if you wanted to know the game rules or Press even number to skip.");
+    int number;
+    scanf("%d",&number);
+    if(number%2!=0)
+    {
+        printf("You have 5 chances.\n");
+        printf("I'm gonna have a random number for each trail.\n");
+        printf("If you guessed the number which mathes with my number atleast for 3 trails.\n");
+        printf("Then you can win this game.\n");
+    }
+    getchar();
+    printf("Let's start the game.");
+    getchar();
+    printf("Guess a number from 15-20:\n");
+    while(trail<6)
+    {
+        srand(time(NULL));
+        int min=15,max=20;
+        int random= rand() % (max-min+1) + min;
+        printf("Trail %d --->",trail);
+        scanf("%d",&guess);
+        if (random==guess)
+        {
+            printf("perfect\n");
+            r++;
+        }
+        else
+        {
+            printf("Try again\n");
+            w++;
+        }
+        trail++;
+    }
+    printf("Your Score:\n");
+    printf("%d\n",r);
+    if (r>=3)
+    {
+        printf("Finally you Won the Game %s\n",name);
+    }
+    else
+    {
+        printf("Better luck next time %s.\n",name);
+    }
+}
